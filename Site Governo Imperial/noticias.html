@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notícias | Governo Imperial</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* Externo monocromático */
+    body {
+      background-color: #000;
+      color: #ddd;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      user-select: text;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 1rem 2rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+    header .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    header .logo img {
+      height: 40px;
+      filter: grayscale(100%);
+    }
+    nav.main-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav.main-nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav.main-nav ul li a:hover,
+    nav.main-nav ul li a.active {
+      color: #fff;
+      text-decoration: underline;
+    }
+    main.content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-color: #111;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #222;
+      color: #ddd;
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #8a2be2;
+      text-align: center;
+      text-shadow: 0 0 10px #4b0082;
+    }
+    article.news-item {
+      border-bottom: 1px solid #333;
+      padding: 1.2rem 0;
+    }
+    article.news-item:last-child {
+      border-bottom: none;
+    }
+    article.news-item h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      color: #8a2be2;
+      margin-bottom: 0.5rem;
+    }
+    article.news-item time {
+      font-size: 0.9rem;
+      color: #777;
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+    article.news-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ccc;
+      margin-bottom: 0.6rem;
+    }
+    .meme {
+      font-family: 'Courier New', monospace;
+      background-color: #222;
+      border: 1px solid #444;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+      color: #8a2be2;
+      user-select: none;
+      white-space: pre-wrap;
+    }
+    footer .footer-content {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="LogoImperial.png" alt="Logo Governo Imperial" />
+      Governo Imperial
+    </div>
+    <nav class="main-nav" aria-label="Menu Principal">
+      <ul>
+        <li><a href="inicio.html">Início</a></li>
+        <li><a href="wiki.html">Wiki</a></li>
+        <li><a href="planilha.html">Projetos</a></li>
+        <li><a href="noticias.html" class="active" aria-current="page">Notícias</a></li>
+        <li><a href="missoes.html">Missões</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content" role="main" aria-label="Notícias do Governo Imperial">
+    <h1>Últimas Notícias do Governo Imperial</h1>
+
+    <article class="news-item" tabindex="0">
+      <h2>Imperador Norte anuncia reforço das fronteiras</h2>
+      <time datetime="2025-06-20">20 de Junho de 2025</time>
+      <p>O Imperador Norte emitiu ordens para intensificar a fortificação das regiões limítrofes, garantindo maior segurança contra invasores e dissidentes.</p>
+      <p>“A proteção do império é nossa prioridade máxima”, declarou o Imperador.</p>
+    </article>
+
+    <article class="news-item" tabindex="0">
+      <h2>Chefe do Setor Vermelho Lombador coordena exercícios militares</h2>
+      <time datetime="2025-06-22">22 de Junho de 2025</time>
+      <p>Lombador liderou uma série de exercícios táticos com as forças militares, visando aprimorar a eficiência e prontidão do setor mais agressivo do Governo Imperial.</p>
+      <p>Militares comentam que "Lombador não para, parece até um Lombador-Bot."</p>
+      <div class="meme" aria-hidden="true">
+        +-------------------+  
+        |  LOMBADOR MODE: ON |  
+        |  > Execução 100%   |  
+        |  > Sem descanso    |  
+        +-------------------+
+      </div>
+    </article>
+
+    <article class="news-item" tabindex="0">
+      <h2>A.L.E.O divulga novo protocolo de controle interno</h2>
+      <time datetime="2025-06-23">23 de Junho de 2025</time>
+      <p>O comandante A.L.E.O apresentou um protocolo avançado de monitoramento e manipulação para manter a ordem no império.</p>
+      <p>Fontes internas afirmam que "Ninguém escapa do olhar de A.L.E.O, nem as formigas."</p>
+    </article>
+
+    <article class="news-item" tabindex="0">
+      <h2>C.H.A.O.S lança campanha de desinformação controlada</h2>
+      <time datetime="2025-06-24">24 de Junho de 2025</time>
+      <p>O departamento C.H.A.O.S está implementando uma nova campanha de propaganda para confundir inimigos e consolidar o poder interno.</p>
+      <p>Especialistas comentam: "Se a desordem é a chave, C.H.A.O.S é o mestre do cadeado."</p>
+      <div class="meme" aria-hidden="true">
+        (╯°□°）╯︵ ┻━┻  
+        Mesa de verdades virou caos total!  
+      </div>
+    </article>
+
+    <article class="news-item" tabindex="0">
+      <h2>M##### aparece em vídeo misterioso</h2>
+      <time datetime="2025-06-24">24 de Junho de 2025</time>
+      <p>Uma figura enigmática conhecida como M##### foi capturada em vídeo circulando por áreas restritas do império. Sua identidade e intenções permanecem desconhecidas.</p>
+      <p>O Governo Imperial alerta para cautela e reforça a vigilância.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      © 2025 Governo Imperial. Todos os direitos reservados.
+    </div>
+  </footer>
+</body>
+</html>

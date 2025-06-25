@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governo Imperial</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+  
+  .loading-screen > div {
+  text-align: center;
+}
+
+.loading-caption {
+  font-family: 'Inter', sans-serif;
+  color: var(--cinza-claro);
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  opacity: 0;
+  animation: captionFadeIn 2s ease 1.5s forwards;
+}
+
+@keyframes captionFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+  
+  
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--preto);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease 3s forwards;
+    }
+
+    .loading-logo {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--branco);
+      font-size: 3rem;
+      opacity: 0;
+      animation: logoFadeIn 2s ease forwards;
+    }
+
+    @keyframes logoFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-screen">
+  <div>
+    <div class="loading-logo">Governo Imperial</div>
+    <div class="loading-caption">[= ACESSO LIBERADO! // DESCRIPTOGRAFANDO =] </div>
+  </div>
+  <audio id="musicaAmbiente" autoplay loop>
+  <source src="entrada.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('musicaAmbiente');
+
+    // Força o autoplay em alguns navegadores que bloqueiam
+    const iniciarAudio = () => {
+      audio.volume = 0.3; // volume mais suave
+      audio.play().catch(() => {
+        // caso o navegador bloqueie, espera interação
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
+    };
+
+    iniciarAudio();
+  });
+</script>
+
+</div>
+
+
+  <div id="main-content" style="display: none;">
+    <header>
+      <div class="top-bar">
+        <div class="logo">
+          <img src="LogoImperial.png" alt="Logo Governo Imperial" />
+          Governo Imperial
+        </div>
+        <nav class="main-nav" aria-label="Menu Principal">
+          <ul>
+            <li><a href="inicio.html" class="active" aria-current="page">Início</a></li>
+            <li><a href="wiki.html">Wiki</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="missoes.html">Missões</a></li>
+          </ul>
+        </nav>
+        <div class="user-menu">
+          <form action="/buscar" method="get" class="search-form">
+            <input type="search" name="q" placeholder="Buscar" />
+            <button type="submit">🔍</button>
+          </form>
+          <div class="auth-links">
+            <a href="/login.html">Entrar</a>
+            <a href="/register">Registrar</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout container">
+      <aside class="sidebar">
+        <section class="panel painel-portal">
+  <h4>🗂 PORTAL CENTRAL</h4>
+  <ul>
+    <li><a href="index.html" aria-current="page">📌 Início</a></li>
+    <li><a href="wiki.html">📖 Visão Geral</a></li>
+    <li><a href="wiki.html#estrutura">🧮 Planilha dos Setores</a></li>
+    <li><a href="homenagem.html">🏅 Homenagens</a></li>
+    <li><a href="wiki.html#historia">📜 História</a></li>
+  </ul>
+</section>
+        <section class="panel">
+          <h4>Departamentos</h4>
+          <ul>
+            <li><a href="#">Setor Branco⚪</a></li>
+            <li><a href="#">Setor Vermelho🔴</a></li>
+            <li><a href="#">Setor Ciano🔵</a></li>
+            <li><a href="#">Setor Roxo🟣</a></li>
+            <li><a href="#">Setor Verde🟢</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="banner">
+          <h2>Boletim Oficial do Governo Imperial</h2>
+          <p>Atualize-se com as últimas diretrizes e programas em vigor. 00/00/0000</p>
+        </section>
+
+          <section class="cards-grid">
+  <a href="topico01.html" class="card estilo01">
+    <h3>📰 Notícia</h3>
+    <h4>Inscrição para o departamento L.E.I</h4>
+    <p>Nova iniciativa para expandir o setor da L.E.I.</p>
+    <small>Publicado em 21/06/2025</small>
+  </a>
+ 
+  <a href="topico02.html" class="card estilo02">
+    <h3>📊 Relatório</h3>
+    <h4>Presencialidade escolar</h4>
+    <p>Aumento notável de presença nas instituições.</p>
+    <small>Publicado em 19/06/2025</small>
+  </a>
+
+  <a href="topico03.html" class="card estilo03">
+    <h3>⚔️ Projeto</h3>
+    <h4>Infraestrutura Militar</h4>
+    <p>Modernização das estruturas de defesa nacional.</p>
+    <small>Publicado em 15/06/2025</small>
+  </a>
+
+  <a href="topico04.html" class="card estilo04">
+    <h3>🔬 Pesquisa</h3>
+    <h4>Nova divisão científica</h4>
+    <p>Avanço técnico nas áreas de energia e AI.</p>
+  </a>
+
+  <a href="topico05.html" class="card estilo05">
+    <h3>📡 Comunicado</h3>
+    <h4>Transmissão Imperial</h4>
+    <p>Discurso oficial do Regente Supremo hoje às 20h.</p>
+  </a>
+
+  <a href="topico06.html" class="card estilo06">
+    <h3>👥 Sociedade</h3>
+    <h4>Reforma Civil</h4>
+    <p>Novas diretrizes para controle populacional e urbano.</p>
+  </a>
+
+</section>
+
+
+        <section class="banner glass" style="margin-top: 2rem;">
+          <h2>Sobre o Governo Imperial</h2>
+          <p>Fundado sobre pilares de ordem, hierarquia e soberania nacional, o Governo Imperial representa o poder central estruturado e responsável por manter a integridade e o progresso do povo.</p>
+        </section>
+
+        <section class="cards-grid">
+            <a href="topico07.html" class="card estilo07">
+    <h3>🛠 Engenharia</h3>
+    <h4>Construção de bases subterrâneas</h4>
+    <p>Projeto ultrassecreto liberado ao público.</p>
+  </a>
+
+  <a href="topico08.html" class="card estilo08">
+    <h3>🎖 Reconhecimento</h3>
+    <h4>Medalha Imperial concedida</h4>
+    <p>Aleatório do Setor Vermelho recebe a mais alta honra.</p>
+  </a>
+
+  <a href="topico09.html" class="card estilo09">
+    <h3>🧠 Filosofia Imperial</h3>
+    <h4>Unidade e Causa</h4>
+    <p>O sentido do império além da matéria.</p>
+  </a>
+  
+    <a href="topico07.html" class="card estilo07">
+    <h3>🛠 Engenharia</h3>
+    <h4>Construção de bases subterrâneas</h4>
+    <p>Projeto ultrassecreto liberado ao público.</p>
+  </a>
+
+  <a href="topico08.html" class="card estilo08">
+    <h3>🎖 Reconhecimento</h3>
+    <h4>Medalha Imperial concedida</h4>
+    <p>Aleatório do Setor Vermelho recebe a mais alta honra.</p>
+  </a>
+
+  <a href="topico09.html" class="card estilo09">
+    <h3>🧠 Filosofia Imperial</h3>
+    <h4>Unidade e Causa</h4>
+    <p>O sentido do império além da matéria.</p>
+  </a>
+          </article>
+        </section>
+      </main>
+    </div>
+
+<div id="player-musica" class="player-aberto">
+  <button id="btn-musica">⏸️ Pausar</button>
+</div>
+
+<audio id="musicaAmbiente" autoplay loop>
+  <source src="entrada.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+    <footer>
+      <div class="footer-content container">
+        <p>© 2025 Governo Imperial. Todos os direitos reservados.</p>
+        <nav>
+          <a href="politica.html">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Contato</a>
+          <a href="#">Ouvidoria</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector(".loading-screen").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }, 3500);
+    });
+  </script>
+
+
+</body>
+</html>
+<text = ☜︎🕆︎ 💧︎☜︎💣︎🏱︎☼︎☜︎ ☜︎💧︎❄︎✌︎☼︎☜︎✋︎ ✌︎✈︎🕆︎✋︎ 👎︎☜︎ ⚐︎☹︎☟︎⚐︎📬︎📬︎📬︎>
+<text/>

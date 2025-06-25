@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal - Governo Imperial</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    #terminal, #terminalRP {
+      white-space: pre-wrap;
+      font-size: 16px;
+      max-width: 90%;
+      padding: 1rem;
+      min-height: 40px;
+      user-select: none;
+    }
+
+    input, button {
+      background-color: #111;
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      width: 220px;
+      user-select: text;
+    }
+
+    button {
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    #login-form {
+      margin-top: 1rem;
+      display: none; /* fica escondido até animar o terminal */
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="terminal"></div>
+
+<div id="login-form">
+  <p>&gt; DIGITE SUAS CREDENCIAIS</p>
+  <input type="text" id="nome" placeholder="USUÁRIO" />
+  <input type="password" id="senha" placeholder="SENHA" />
+  <button onclick="verificarLogin()">ACESSAR</button>
+  <p id="mensagem"></p>
+</div>
+
+<div id="terminalRP" class="hidden"></div>
+
+<!-- 🔊 SONS -->
+<audio id="audioMafra" preload="auto">
+  <source src="mafra.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="audioErro" preload="auto">
+  <source src="erro.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="musicaAmbiente" autoplay loop>
+  <source src="entrada.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Função para simular a digitação
+  function digitarTextoRP(texto, destinoId, callback) {
+    const destino = document.getElementById(destinoId);
+    let i = 0;
+    destino.textContent = "";
+
+    function digitar() {
+      if (i < texto.length) {
+        destino.textContent += texto.charAt(i);
+        i++;
+        setTimeout(digitar, 13);
+      } else if (callback) {
+        callback();
+      }
+    }
+
+    digitar();
+  }
+
+  // Animação inicial do terminal simulando "boot"
+  function animarTerminalEntrada(callback) {
+    const terminal = document.getElementById("terminal");
+    const bootLines = [
+      "Iniciando sistema...",
+      "Carregando módulos essenciais...",
+      "Verificando integridade...",
+      "Inicializando terminal...",
+      "---[ TERMINAL GOVERNO IMPERIAL ]---"
+    ];
+
+    let index = 0;
+    terminal.textContent = "";
+
+    function mostrarLinha() {
+      if (index < bootLines.length) {
+        terminal.textContent += bootLines[index] + "\n";
+        index++;
+        setTimeout(mostrarLinha, 700);
+      } else {
+        callback();
+      }
+    }
+
+    mostrarLinha();
+  }
+
+  function mostrarLogin() {
+    document.getElementById("login-form").style.display = "block";
+  }
+
+  function verificarLogin() {
+    const nomeInput = document.getElementById("nome").value.trim().toLowerCase();
+    const senha = document.getElementById("senha").value;
+    const msg = document.getElementById("mensagem");
+
+    const mafraTrigger = /(m.?a.?f.?r.?a|m.?4.?f.?r.?4|m.?f.?r.?a)/;
+    const ehMafra = mafraTrigger.test(nomeInput);
+
+    const audioMafra = document.getElementById("audioMafra");
+    const audioErro = document.getElementById("audioErro");
+    const musicaAmbiente = document.getElementById("musicaAmbiente");
+
+    if (senha === "GIMP2025" || ehMafra) {
+      document.getElementById("terminal").classList.add("hidden");
+      document.getElementById("login-form").classList.add("hidden");
+      const terminalRP = document.getElementById("terminalRP");
+      terminalRP.classList.remove("hidden");
+
+      let rpTexto = "";
+
+      if (ehMafra) {
+        musicaAmbiente.pause();
+        musicaAmbiente.currentTime = 0;
+        audioMafra.volume = 1;
+        audioMafra.play().catch(() => {
+          document.body.addEventListener("click", () => audioMafra.play(), { once: true });
+        });
+
+        document.body.style.backgroundColor = "#1a002a";
+        terminalRP.style.color = "#a678ff";
+        terminalRP.style.fontFamily = "Wingdings, monospace";
+        rpTexto = `
+☘︎♰︎⬧︎☜︎ ☼︎☘︎☜︎ ☝︎⚐︎✡︎⚐︎💣︎ 💧︎☜︎✌︎☜︎⚐︎☘︎❄︎
+
+✞︎⚐︎✞︎ ✡︎☟︎✠︎✜︎ ☹︎⚐︎❄︎☘︎☜︎⚐︎✋︎ ☜︎⚐︎⚐︎✞︎ ☼︎✋︎☘︎❄︎✋︎☼︎
+
+⚠︎ Descoberta anômala detectada...
+⚠︎ Infiltração não-autorizada confirmada...
+⚠︎ Carregando distorções do protocolo...
+
+☘︎🕳︎⚐︎☹︎ ☜︎🕳︎🕆︎☜︎ ❄︎☟︎⚐︎☹︎✡︎ ☼︎☜︎💧︎
+
+[...]`;
+      } else {
+        rpTexto = `
+---[ ACESSO CONCEDIDO ]---
+
+> Usuário: ${nomeInput.toUpperCase() || "AGENTE DESCONHECIDO"}
+> Nível: CLASSIFICADO
+> Modo de operação: ONLINE
+
+[✔] Verificando diretivas...
+[✔] Protocolos carregados.
+[✔] Segurança ativa.
+
+> Iniciando o ambiente principal...`;
+      }
+
+      digitarTextoRP(rpTexto, "terminalRP", () => {
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 4000);
+      });
+
+    } else {
+      msg.textContent = "⚠️ CREDENCIAIS INVÁLIDAS.";
+      audioErro.volume = 1;
+      audioErro.play().catch(() => {
+        document.body.addEventListener("click", () => audioErro.play(), { once: true });
+      });
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const musica = document.getElementById("musicaAmbiente");
+    musica.volume = 0.4;
+    musica.play().catch(() => {
+      document.body.addEventListener("click", () => musica.play(), { once: true });
+    });
+
+    animarTerminalEntrada(() => {
+      mostrarLogin();
+    });
+  });
+</script>
+
+</body>
+</html>
