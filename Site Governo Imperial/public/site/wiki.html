@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiki | Governo Imperial</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Customizações da Wiki */
+    main.content {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      user-select: text;
+    }
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--preto);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+      border-bottom: 3px solid var(--preto);
+      padding-bottom: 0.3rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--cinza);
+      padding-bottom: 0.25rem;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    p {
+      line-height: 1.6;
+      color: var(--cinza-escuro);
+      margin-bottom: 1rem;
+    }
+    nav.breadcrumbs {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    nav.breadcrumbs a {
+      color: var(--cinza);
+      text-decoration: none;
+      margin-right: 0.5rem;
+    }
+    nav.breadcrumbs a:hover {
+      color: var(--cinza-hover);
+      text-decoration: underline;
+    }
+    /* Lista de tópicos */
+    ul.topic-list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    ul.topic-list li {
+      background: var(--cinza-claro);
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      color: var(--preto);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+    ul.topic-list li:hover,
+    ul.topic-list li.active {
+      background: var(--cinza-hover);
+      color: var(--branco);
+    }
+    /* Conteúdo dinâmico dos tópicos */
+    section.topic-content {
+      border: 1.5px solid var(--preto);
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: var(--branco);
+      box-shadow: 4px 4px 0 var(--preto);
+      min-height: 280px;
+      user-select: text;
+      color: var(--preto);
+    }
+    /* Personagens */
+    .character {
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--preto);
+      padding-left: 1rem;
+    }
+    .character h3 {
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      color: var(--preto);
+    }
+    .character p {
+      margin: 0;
+      color: var(--cinza-escuro);
+    }
+    /* Listas dentro do conteúdo */
+    section.topic-content ul {
+      list-style: disc inside;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">
+        <img src="LogoImperial.png" alt="Logo Governo Imperial" />
+        Governo Imperial
+      </div>
+      <nav class="main-nav" aria-label="Menu Principal">
+        <ul>
+          <li><a href="inicio.html">Início</a></li>
+          <li><a href="wiki.html" class="active" aria-current="page">Wiki</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="missoes.html">Missões</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+        <form action="/buscar" method="get" class="search-form">
+          <input type="search" name="q" placeholder="Buscar" />
+          <button type="submit">🔍</button>
+        </form>
+        <div class="auth-links">
+          <a href="/login.html">Entrar</a>
+          <a href="/register">Registrar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <h1>Wiki do Governo Imperial</h1>
+
+    <nav class="breadcrumbs" aria-label="Você está em:">
+      <a href="index.html">Início</a> &raquo; <span>Wiki</span>
+    </nav>
+
+    <ul class="topic-list" role="tablist" aria-label="Tópicos da Wiki">
+      <li role="tab" tabindex="0" aria-selected="true" data-topic="estrutura">Estrutura</li>
+      <li role="tab" tabindex="-1" aria-selected="false" data-topic="setores">Setores</li>
+      <li role="tab" tabindex="-1" aria-selected="false" data-topic="missao-valores">Missão & Valores</li>
+      <li role="tab" tabindex="-1" aria-selected="false" data-topic="historia">História</li>
+      <li role="tab" tabindex="-1" aria-selected="false" data-topic="lideranca">Liderança</li>
+      <li role="tab" tabindex="-1" aria-selected="false" data-topic="personagens">Personagens</li>
+    </ul>
+
+    <section class="topic-content" role="tabpanel" tabindex="0" aria-live="polite" aria-atomic="true" id="wiki-content">
+      <!-- Conteúdo carregado aqui pelo JS -->
+      <h2>Estrutura</h2>
+      <p>O Governo Imperial é organizado em setores e departamentos que garantem a ordem, disciplina e eficiência do império.</p>
+      <p>Cada setor possui funções específicas, alinhadas com a missão central do Governo Imperial.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content container">
+      <p>© 2025 Governo Imperial. Todos os direitos reservados.</p>
+      <nav>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contato</a>
+        <a href="#">Ouvidoria</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const topics = {
+      estrutura: `
+        <h2>Estrutura</h2>
+        <p>O Governo Imperial é uma máquina de precisão, organizada em setores rígidos e departamentos especializados que atuam em perfeita sincronia para garantir o controle absoluto e a ordem no império.</p>
+        <p>Cada setor tem funções claras e essenciais, garantindo que o império não falhe, mantendo a disciplina, hierarquia e o poder central intactos.</p>
+        <ul>
+          <li><strong>Setor Branco:</strong> Administração geral, burocracia e suporte logístico.</li>
+          <li><strong>Setor Vermelho:</strong> Forças de segurança e aparato militar.</li>
+          <li><strong>Setor Ciano:</strong> Desenvolvimento tecnológico e pesquisas avançadas.</li>
+          <li><strong>Setor Roxo:</strong> Inteligência estratégica e contraespionagem.</li>
+          <li><strong>Setor Verde:</strong> Relações diplomáticas e políticas externas.</li>
+        </ul>
+      `,
+      setores: `
+        <h2>Setores</h2>
+        <p>Os setores são a espinha dorsal do Governo Imperial, responsáveis por diferentes frentes que mantém o império funcional e temido:</p>
+        <ul>
+          <li><strong>Setor Branco:</strong> Centro administrativo e de gerenciamento de recursos. Tudo que faz o império funcionar por trás das cortinas.</li>
+          <li><strong>Setor Vermelho:</strong> Braço armado, lida com a segurança interna, repressão e operações militares.</li>
+          <li><strong>Setor Ciano:</strong> Núcleo de inovação, pesquisa científica e desenvolvimento tecnológico para manter a vantagem competitiva.</li>
+          <li><strong>Setor Roxo:</strong> Serviço secreto e inteligência, responsável por espionagem, vigilância e operações encobertas.</li>
+          <li><strong>Setor Verde:</strong> Diplomacia, negociações internacionais e manutenção da influência externa do império.</li>
+        </ul>
+      `,
+      'missao-valores': `
+        <h2>Missão & Valores</h2>
+        <p>A missão do Governo Imperial é clara e inflexível: preservar a ordem, garantir o progresso sustentável do império e manter o poder central absoluto.</p>
+        <p>Os valores que sustentam essa missão são:</p>
+        <ul>
+          <li><strong>Lealdade:</strong> Fidelidade inquestionável ao império e sua liderança.</li>
+          <li><strong>Disciplina:</strong> Cumprimento rigoroso das normas e ordens.</li>
+          <li><strong>Ordem:</strong> Estabilidade como base para qualquer avanço.</li>
+          <li><strong>Hierarquia:</strong> Respeito absoluto à cadeia de comando.</li>
+          <li><strong>Responsabilidade coletiva:</strong> Todos trabalham para o bem maior do império.</li>
+        </ul>
+        <p>Qualquer desvio desses valores é considerado ameaça e punido exemplarmente.</p>
+      `,
+      historia: `
+        <h2>História</h2>
+        <p>Fundado há séculos, o Governo Imperial nasceu da necessidade de unificar territórios fragmentados, impondo disciplina e centralizando o poder.</p>
+        <p>Desde sua criação, resistiu a revoltas, crises e invasões externas, solidificando uma cultura de força e ordem que permeia até os dias atuais.</p>
+        <p>O império valoriza o passado, os rituais e as tradições que o mantêm forte, sempre preparado para os desafios que o futuro reserva.</p>
+      `,
+      lideranca: `
+        <h2>Liderança</h2>
+        <p>A liderança do Governo Imperial é formada por uma elite de estrategistas e comandantes que operam com precisão e frieza.</p>
+        <p>Eles possuem total controle das operações, administrando o império com mão firme e visão implacável.</p>
+        <ul>
+          <li><strong>Imp. Mafra:</strong> Personificação do poder e vilania, líder supremo e estrategista maior.</li>
+          <li><strong>A.L.E.O:</strong> Mestre da corrupção e controle interno.</li>
+          <li><strong>Lombador:</strong> Comandante militar e executor dos decretos imperiais.</li>
+          <li><strong>Imp. Norte:</strong> Imperador regente, equilíbrio entre força e estratégia.</li>
+        </ul>
+      `,
+      personagens: `
+        <h2>Personagens</h2>
+        <div class="character">
+          <h3>Imp. Mafra</h3>
+          <p>Figura central do Governo Imperial, representando o ápice da vilania calculada. Impiedoso, estratégico e implacável, ele é o rosto do poder absoluto.</p>
+        </div>
+        <div class="character">
+          <h3>A.L.E.O</h3>
+          <p>Comandante da L.E.I., especialista em manobras corruptas e manipulações para manter a ordem interna através do medo e da influência.</p>
+        </div>
+        <div class="character">
+          <h3>Lombador</h3>
+          <p>Chefe do Setor Vermelho, executor das políticas militares e responsável pela segurança e repressão.</p>
+        </div>
+        <div class="character">
+          <h3>Imp. Norte</h3>
+          <p>Imperador regente que traz uma dualidade complexa entre bondade e crueldade, agindo como o equilíbrio delicado do império.</p>
+        </div>
+      `
+    };
+
+    const tabs = document.querySelectorAll('ul.topic-list li');
+    const content = document.getElementById('wiki-content');
+
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
+      });
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.setAttribute('tabindex', '0');
+      tab.focus();
+
+      const topicKey = tab.getAttribute('data-topic');
+      content.innerHTML = topics[topicKey];
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', e => {
+        if(e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          let next = tab.nextElementSibling || tabs[0];
+          activateTab(next);
+        } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          let prev = tab.previousElementSibling || tabs[tabs.length - 1];
+          activateTab(prev);
+        }
+      });
+    });
+
+    // Inicializa com o primeiro tab ativo
+    activateTab(tabs[0]);
+  </script>
+</body>
+</html>

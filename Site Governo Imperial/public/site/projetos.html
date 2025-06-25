@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projetos | Governo Imperial</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* Externo monocromático */
+    body {
+      background-color: #000;
+      color: #ddd;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      user-select: text;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 1rem 2rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+    header .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    header .logo img {
+      height: 40px;
+      filter: grayscale(100%);
+    }
+    nav.main-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav.main-nav ul li a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav.main-nav ul li a:hover,
+    nav.main-nav ul li a.active {
+      color: #fff;
+      text-decoration: underline;
+    }
+    main.content {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-color: #111; /* leve fundo diferente, mas ainda neutro */
+      border-radius: 8px;
+      box-shadow: 0 0 20px #222;
+      color: #ddd;
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #8a2be2; /* detalhe roxo pra dar o toque */
+      text-align: center;
+      text-shadow: 0 0 10px #4b0082;
+    }
+    p.description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: #bbb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      user-select: text;
+      box-shadow: 0 0 15px #1a1a1a;
+    }
+    thead {
+      background-color: #333;
+      color: #ddd;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 500;
+      border-bottom: 1px solid #444;
+      font-size: 1rem;
+      color: #ccc;
+    }
+    tbody tr:hover {
+      background-color: #333;
+      cursor: default;
+    }
+    .status {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #eee;
+      display: inline-block;
+      min-width: 90px;
+      text-align: center;
+      user-select: none;
+      background-color: #444;
+      transition: background-color 0.3s ease;
+    }
+    .status.concluido {
+      background-color: #6a0dad; /* roxo forte */
+    }
+    .status.em-andamento {
+      background-color: #8a2be2; /* roxo vibrante */
+    }
+    .status.parado {
+      background-color: #555;
+    }
+    .status.aguardando {
+      background-color: #333;
+    }
+    .document-section {
+      margin-top: 2rem;
+      background-color: #1c1c1c;
+      border: 1.5px solid #444;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #111;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      color: #ccc;
+      max-height: 350px;
+      overflow-y: auto;
+      user-select: text;
+    }
+    footer .footer-content {
+      text-align:center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color:#666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="LogoImperial.png" alt="Logo Governo Imperial" />
+      Governo Imperial
+    </div>
+    <nav class="main-nav" aria-label="Menu Principal">
+      <ul>
+        <li><a href="inicio.html">Início</a></li>
+        <li><a href="wiki.html">Wiki</a></li>
+        <li><a href="projetos.html" class="active" aria-current="page">Projetos</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="missoes.html">Missões</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content" role="main">
+    <h1>Projetos Imperiais</h1>
+    <p class="description">
+      Abaixo está a lista oficial dos projetos em andamento, planejamento e finalizados que sustentam o progresso e a dominação do Governo Imperial.
+      Cada iniciativa é meticulosamente monitorada, avaliada e executada sob rígido controle.
+    </p>
+
+    <table aria-label="Tabela de projetos imperiais">
+      <thead>
+        <tr>
+          <th>Projeto</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th>Responsável</th>
+          <th>Prazo Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fortificação das Fronteiras</td>
+          <td>Construção e reforço das muralhas ao redor dos territórios estratégicos.</td>
+          <td><span class="status em-andamento">Em andamento</span></td>
+          <td>Lombador</td>
+          <td>30/09/2025</td>
+        </tr>
+        <tr>
+          <td>Rede de Inteligência Oculta</td>
+          <td>Implementação de sistemas de espionagem e vigilância secreta.</td>
+          <td><span class="status em-andamento">Em andamento</span></td>
+          <td>Setor Roxo</td>
+          <td>15/08/2025</td>
+        </tr>
+        <tr>
+          <td>Campanha de Propaganda Imperial</td>
+          <td>Divulgação dos valores do império e fortalecimento da imagem pública.</td>
+          <td><span class="status parado">Parado</span></td>
+          <td>Setor Branco</td>
+          <td>Indefinido</td>
+        </tr>
+        <tr>
+          <td>Modernização Tecnológica</td>
+          <td>Atualização dos equipamentos e sistemas do setor tecnológico.</td>
+          <td><span class="status aguardando">Aguardando</span></td>
+          <td>Setor Ciano</td>
+          <td>01/12/2025</td>
+        </tr>
+        <tr>
+          <td>Diplomacia Expansionista</td>
+          <td>Negociações para ampliar a influência imperial em territórios vizinhos.</td>
+          <td><span class="status concluido">Concluído</span></td>
+          <td>Setor Verde</td>
+          <td>01/06/2025</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="document-section" aria-label="Documento oficial dos projetos">
+      <strong>Documento Oficial de Projetos - Governo Imperial (Resumo Executivo)</strong>
+
+      <br><br>
+      PROJETO: Fortificação das Fronteiras  
+      OBJETIVO: Garantir a invulnerabilidade dos pontos críticos de acesso territorial através de construção de muralhas e torres de vigilância.  
+      STATUS: Em andamento  
+      RESPONSÁVEL: Lombador  
+      PRAZO: 30/09/2025  
+
+      <br><br>
+      PROJETO: Rede de Inteligência Oculta  
+      OBJETIVO: Estabelecer rede avançada de espionagem utilizando tecnologia secreta para monitorar inimigos e dissidentes internos.  
+      STATUS: Em andamento  
+      RESPONSÁVEL: Setor Roxo  
+      PRAZO: 15/08/2025  
+
+      <br><br>
+      PROJETO: Campanha de Propaganda Imperial  
+      OBJETIVO: Fortalecer a imagem do Governo Imperial junto à população através de controle midiático e mensagens estratégicas.  
+      STATUS: Parado  
+      RESPONSÁVEL: Setor Branco  
+      PRAZO: Indefinido  
+
+      <br><br>
+      PROJETO: Modernização Tecnológica  
+      OBJETIVO: Atualizar e integrar equipamentos tecnológicos para aumentar eficiência em todos os setores do império.  
+      STATUS: Aguardando início  
+      RESPONSÁVEL: Setor Ciano  
+      PRAZO: 01/12/2025  
+
+      <br><br>
+      PROJETO: Diplomacia Expansionista  
+      OBJETIVO: Expandir a influência política e territorial do Governo Imperial por meio de negociações e alianças estratégicas.  
+      STATUS: Concluído  
+      RESPONSÁVEL: Setor Verde  
+      PRAZO: 01/06/2025  
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      © 2025 Governo Imperial. Todos os direitos reservados.
+    </div>
+  </footer>
+</body>
+</html>
